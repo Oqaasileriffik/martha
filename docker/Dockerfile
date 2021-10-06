@@ -1,4 +1,4 @@
-FROM amd64/debian:buster
+FROM amd64/debian:bullseye
 
 LABEL vendor="Oqaasileriffik" \
 	maintainer="Tino Didriksen <tino@oqaasileriffik.gl>" \
@@ -56,9 +56,9 @@ RUN echo 'export APACHE_RUN_USER=martha' >> /etc/apache2/envvars && \
 ADD martha-linux.tar.bz2 /
 
 RUN echo 'Listen 8000' > /etc/apache2/ports.conf
-COPY martha.cc.conf /etc/apache2/sites-available/
+COPY martha.tts.conf /etc/apache2/sites-available/
 RUN rm -f /etc/apache2/sites-enabled/* && \
-	ln -s ../sites-available/martha.cc.conf /etc/apache2/sites-enabled/martha.cc.conf && \
+	ln -s ../sites-available/martha.tts.conf /etc/apache2/sites-enabled/martha.tts.conf && \
 	ln -sf /dev/stdout /var/log/apache2/error.log && \
 	ln -sf /dev/stdout /var/log/apache2/other_vhosts_access.log
 
