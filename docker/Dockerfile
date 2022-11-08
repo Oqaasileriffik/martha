@@ -41,7 +41,6 @@ RUN echo 'export APACHE_RUN_USER=martha' >> /etc/apache2/envvars && \
 	phpdismod -f ftp && \
 	phpdismod -f gettext && \
 	phpdismod -f iconv && \
-	phpdismod -f json && \
 	phpdismod -f phar && \
 	phpdismod -f posix && \
 	phpdismod -f readline && \
@@ -54,6 +53,8 @@ RUN echo 'export APACHE_RUN_USER=martha' >> /etc/apache2/envvars && \
 
 # Fetch from https://oqaasileriffik.gl/d/tts/martha-linux.tar.bz2
 ADD martha-linux.tar.bz2 /
+COPY stamp.scm /martha/
+COPY server_start.sh /martha/
 
 RUN echo 'Listen 8000' > /etc/apache2/ports.conf
 COPY martha.tts.conf /etc/apache2/sites-available/

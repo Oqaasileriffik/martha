@@ -21,9 +21,11 @@ The web service takes these parameters, either as GET or POST:
 * `t` - the text to be spoken
 * `f` - the format of the result, either `wav` or `mp3`. Defaults to `mp3`
 * `q` - MP3 quality, an integer value between `1` and `9` inclusive, where `1` is best quality and `9` is worst. This is the value given to `lame -V`. Defaults to `1`
-* `n` - if set to `1`, return the filename instead of the audio data. Defaults to `0`
+* `n` - if set to `1`, return the filename instead of the audio data. If set to `json`, returns JSON with filename and timestamps for each token in the text. Defaults to `0`
 
-The purpose of `n` are for cases where the daemon's `/cache` folder is mounted in a location that the requestor has access to, so there is no point in sending the whole audio data.
+The purpose of `n=1` are for cases where the daemon's `/cache` folder is mounted in a location that the requestor has access to, so there is no point in sending the whole audio data.
+
+`n=json` lets you implement precise highlighting of which word is being read.
 
 A `wav` file is always generated and cached, even when `f=mp3` is set.
 
