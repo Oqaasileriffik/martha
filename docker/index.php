@@ -1,10 +1,27 @@
 <?php
 
+$origin = '*';
+if (!empty($_SERVER['HTTP_ORIGIN'])) {
+	$origin = trim($_SERVER['HTTP_ORIGIN']);
+}
+header('Access-Control-Allow-Origin: '.$origin);
+
+if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
+	header('HTTP/1.1 200 Options');
+	die();
+}
+
 $text = $_REQUEST['t'] ?? '';
 $format = $_REQUEST['f'] ?? 'mp3';
 $return_type = $_REQUEST['n'] ?? 0;
 // The -V value given to lame - default to 1, but allow 1-9 inclusive
 $quality = min(max(intval($_REQUEST['q'] ?? 1), 1), 9);
+
+// If text is longer than 1024 Unicode code points, trim to nearest word under
+if (mb_strlen($text) > 1024) {
+	$text = mb_substr($text, 0, 1024);
+	$text = preg_replace('~\s*\S+$~', '', $text);
+}
 
 $hash = sha1($text).'-'.strlen($text);
 $folder = '/cache/'.substr($hash, 0, 2).'/'.substr($hash, 2, 2);

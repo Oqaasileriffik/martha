@@ -12,7 +12,7 @@ ENV LANG=C.UTF-8 \
 
 RUN apt-get -q update && \
 	apt-get -qfy dist-upgrade --no-install-recommends && \
-	apt-get -qfy install --no-install-recommends apache2 libapache2-mod-php libasound2 libncurses5 lame && \
+	apt-get -qfy install --no-install-recommends apache2 libapache2-mod-php php-mbstring libasound2 libncurses5 lame && \
 	apt-get -qfy autoremove --purge
 
 # Remember to adjust list of modules to disable when changing Debian release
