@@ -12,6 +12,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'OPTIONS') {
 }
 
 $text = $_REQUEST['t'] ?? '';
+$text = preg_replace('~ *[\t\n]+ *~su', "\n", $text);
+$text = preg_replace('~  +~su', ' ', $text);
+$text = trim($text);
 $format = $_REQUEST['f'] ?? 'mp3';
 $return_type = $_REQUEST['n'] ?? 0;
 // The -V value given to lame - default to 1, but allow 1-9 inclusive
