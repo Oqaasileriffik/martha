@@ -4,9 +4,9 @@
 * The `js/` folder contains the JavaScript frontend for use on websites and documentation on how to use it.
 
 ## Public endpoint
-Oqaasileriffik runs a public-facing TTS service endpoint for use by 3rd party app developers at https://oqaasileriffik.gl/martha/tts/ with generated audio under https://oqaasileriffik.gl/martha/data/
+Oqaasileriffik runs a public-facing TTS service endpoint for use by 3rd party app developers at <https://oqaasileriffik.gl/martha/tts/> with generated audio under <https://oqaasileriffik.gl/martha/data/>
 
-For example, https://oqaasileriffik.gl/martha/tts/?t=oqaatsit&n=json returns
+For example, <https://oqaasileriffik.gl/martha/tts/?t=oqaatsit&n=json> returns
 ```
 {
   "fn": "10e2c4523ffcdf3db7638dfc07b79af6ea8ea616-8-1.mp3",
@@ -20,6 +20,6 @@ For example, https://oqaasileriffik.gl/martha/tts/?t=oqaatsit&n=json returns
   ]
 }
 ```
-where the actual MP3 can be loaded from https://oqaasileriffik.gl/martha/data/10/e2/10e2c4523ffcdf3db7638dfc07b79af6ea8ea616-8-1.mp3
+where the actual MP3 can be loaded from <https://oqaasileriffik.gl/martha/data/10/e2/10e2c4523ffcdf3db7638dfc07b79af6ea8ea616-8-1.mp3>
 
 The service limits input to 10000 Unicode characters. Please don't abuse it.
