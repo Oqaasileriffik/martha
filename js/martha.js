@@ -35,6 +35,7 @@
 		a: 0,
 		du: 0,
 		};
+	let rate = 1.0;
 
 	// Formats a floating point timestamp, e.g. 62.54 into 1:03
 	function formatTime(t) {
@@ -171,6 +172,7 @@
 	function loadedRemote() {
 		let rv = JSON.parse(this.responseText);
 		let p = new Audio('https://oqaasileriffik.gl/martha/data/'+rv.fn.substr(0, 2)+'/'+rv.fn.substr(2, 2)+'/'+rv.fn);
+		p.playbackRate = rate;
 		p.addEventListener('ended', playNext);
 		p.addEventListener('timeupdate', updatePlayback);
 
@@ -368,6 +370,10 @@
 		e.preventDefault();
 		clearTTS();
 		let art = [];
+		rate = 1.0;
+		if (this.hasAttribute('data-martha-rate')) {
+			rate = parseFloat(this.getAttribute('data-martha-rate'));
+		}
 		if (this.hasAttribute('data-martha-id')) {
 			art.push(document.getElementById(this.getAttribute('data-martha-id')));
 		}
@@ -450,6 +456,11 @@
 			div.setAttribute('class', 'martha-skip');
 			let button = document.createElement('button');
 			button.innerHTML = '&#x1F508; Read selection';
+			button.addEventListener('click', buttonSelected);
+			div.appendChild(button);
+			button = document.createElement('button');
+			button.setAttribute('data-martha-rate', '0.75');
+			button.innerHTML = '&#x1F508; Read slow';
 			button.addEventListener('click', buttonSelected);
 			div.appendChild(button);
 			html.appendChild(div);

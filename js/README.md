@@ -11,6 +11,7 @@ By default, this only exports the event handler `martha.click()` which you can b
 
 * Any element with class `martha-button` will be bound to `martha.click()`. If the element has an attribute `data-martha-id` then the corresponding single element will be picked. Otherwise, attribute `data-martha-select` will pick all elements matching the selector. Otherwise, attribute `data-martha-parent` will pick the closest single parent element matching the selector. Otherwise, the closest single parent with class `martha-article` will be picked. If no element is picked, an alert is shown.
   * The picked element(s) are then recursively searched for text nodes, and all such nodes are queued for reading out loud.
+* The button's `data-martha-rate` attribute controls the [playbackRate](https://developer.mozilla.org/en-US/docs/Web/API/HTMLMediaElement/playbackRate). Default is 1.0.
 * Elements with class `martha-skip` will never be read. This allows interleaving buttons and other elements in the to-be-read text.
 * If you select any text in the page, a floating button is shown that will read only the selected text (it will expand to whole words).
 
