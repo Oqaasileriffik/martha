@@ -37,3 +37,14 @@ The cache uses hash-tiered storage. Files are named according to the SHA-1 hash 
 Martha was created by [Mv-Nordic](http://mv-nordic.com/) (now named Vitec MV), with the help of [Oqaasileriffik](https://oqaasileriffik.gl/).
 
 Currently maintained by [Oqaasileriffik](https://oqaasileriffik.gl/), primarily [Tino Didriksen](mailto:tino@oqaasileriffik.gl).
+
+## Licence terms
+The original and currently binding license terms for the Martha TTS is quoted below, typos and all. Note that this does not preclude using Martha in a commercial product or setting, merely that nobody (including us) may charge for a copy of Martha.
+
+> As part of the agreement, the customer shall acquire all rights of royalty-free distribution and use to the solution without limitatation.
+>
+> The solution must not be sold, leased, rented or otherwise made available on commercial terms by the customer, supplier or any third party.
+>
+> There are no limitations or restrictions regarding royalty-free distribution of the Greenlandic voice and the supplementary parts to this such as the documentation, the maintenance tools, components and installations to every supported platform. The Greenlandic voice will not be sold, leased, rented or otherwise made available on commercial terms. The voice, including the supplementary parts to the voice, will not require any activation, registration or similar in order to be used.
+
+The code and files in this repository are all under LGPL-3.0-or-later.
